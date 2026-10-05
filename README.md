@@ -10,6 +10,12 @@ A high-performance, full-stack web application for viewing RTSP camera live stre
 
 ---
 
+## 🌐 Live Demo & Endpoints
+
+- **Backend Service (Render)**: `https://skylark-rtsp-viewer.onrender.com`
+- **Backend Health Check**: `https://skylark-rtsp-viewer.onrender.com/health`
+- **WebSocket Endpoint**: `wss://skylark-rtsp-viewer.onrender.com/ws?url=<RTSP_URL>`
+
 ## ✨ Features
 
 - 📹 **Live RTSP Streaming** — Decodes RTSP video streams via FFmpeg and streams base64 JPEG frames over WebSockets.
@@ -57,8 +63,8 @@ The fastest way to spin up the full stack (MediaMTX server, test stream generato
 
 ```bash
 # Clone repository
-git clone https://github.com/your-username/skylark-rtsp-viewer.git
-cd skylark-rtsp-viewer
+git clone https://github.com/mayank123hangsh00/Skylark-RTSP-Viewer.git
+cd Skylark-RTSP-Viewer
 
 # Start all services with Docker Compose
 docker-compose up --build
