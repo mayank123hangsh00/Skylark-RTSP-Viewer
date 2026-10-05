@@ -3,9 +3,9 @@ import { StreamStatusType } from '../types/stream';
 export const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 export const WS_BASE_URL = import.meta.env.VITE_WS_URL || 'ws://localhost:8000';
 
-export const getStreamWsUrl = (streamId: string): string => `${WS_BASE_URL}/ws/stream/${streamId}/`;
+export const getStreamWsUrl = (streamId: string): string => `${WS_BASE_URL.replace(/\/+$/, '')}/ws/stream/${streamId}`;
 
-export const getStreamsApiUrl = (): string => `${API_BASE_URL}/api/streams/`;
+export const getStreamsApiUrl = (): string => `${API_BASE_URL.replace(/\/+$/, '')}/api/streams`;
 
 export const GRID_CONFIGS: Record<number, { columns: number }> = {
   1: { columns: 1 },

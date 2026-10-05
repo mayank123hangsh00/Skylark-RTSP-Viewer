@@ -36,14 +36,12 @@ func main() {
 	api.HandleFunc("/streams/{id}", handlers.DeleteStream(streamStore)).Methods(http.MethodDelete)
 
 	// ── WebSocket ─────────────────────────────────────────────────────────────
-	r.HandleFunc("/ws/stream/{streamId}", handlers.NewStreamWSHandler())
+	wsHandler := handlers.NewStreamWSHandler()
+	r.HandleFunc("/ws/stream/{streamId}", wsHandler)
+	r.HandleFunc("/ws/stream/{streamId}/", wsHandler)
 
 	// ── CORS ──────────────────────────────────────────────────────────────────
-	allowedOrigins := []string{
-		"http://localhost:5173",
-		"http://127.0.0.1:5173",
-		"http://localhost:3000",
-	}
+	allowedOrigins := []string{"*"}
 	if env := os.Getenv("CORS_ALLOWED_ORIGINS"); env != "" {
 		allowedOrigins = strings.Split(env, ",")
 	}
@@ -52,7 +50,7 @@ func main() {
 		AllowedOrigins:   allowedOrigins,
 		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
 		AllowedHeaders:   []string{"Accept", "Content-Type", "Authorization"},
-		AllowCredentials: true,
+		AllowCredentials: false,
 	})
 
 	// ── Listen ────────────────────────────────────────────────────────────────
