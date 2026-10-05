@@ -12,6 +12,7 @@ A high-performance, full-stack web application for viewing RTSP camera live stre
 
 ## 🌐 Live Demo & Endpoints
 
+- **Live Application (Vercel)**: [https://frontend-liard-eta-95.vercel.app](https://frontend-liard-eta-95.vercel.app)
 - **Backend Service (Render)**: `https://skylark-rtsp-viewer.onrender.com`
 - **Backend Health Check**: `https://skylark-rtsp-viewer.onrender.com/health`
 - **WebSocket Endpoint**: `wss://skylark-rtsp-viewer.onrender.com/ws?url=<RTSP_URL>`
