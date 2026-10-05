@@ -3,12 +3,12 @@ FROM golang:1.21-alpine AS builder
 
 WORKDIR /app
 
-# Download dependencies first for layer caching
-COPY go.mod go.sum ./
-RUN go mod download
-
-# Copy source and compile a static binary
+# Copy module file and source
+COPY go.mod ./
 COPY . .
+
+# Download dependencies and generate go.sum inside docker
+RUN go mod tidy
 RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-s -w" -o skylark-server .
 
 # ── Runtime stage ─────────────────────────────────────────────────────────────
