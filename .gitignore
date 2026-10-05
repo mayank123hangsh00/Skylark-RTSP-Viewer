@@ -1,0 +1,31 @@
+# Go
+backend/skylark-backend
+backend/skylark-backend.exe
+*.exe
+vendor/
+
+# Node & Frontend
+node_modules/
+frontend/node_modules/
+frontend/dist/
+npm-debug.log*
+
+# Distribution / packaging
+dist/
+build/
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# IDE & OS
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Docker
+.docker/

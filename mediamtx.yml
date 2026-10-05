@@ -1,0 +1,21 @@
+###############################################
+# MediaMTX Configuration for RTSP Server
+###############################################
+
+logLevel: info
+logDestinations: [stdout]
+
+# RTSP server configuration
+rtsp: true
+protocols: [tcp, udp]
+rtspAddress: :8554
+rtpAddress: :8000
+rtcpAddress: :8001
+
+# Enable HTTP API for status checks
+api: true
+apiAddress: :9997
+
+# Path configuration for RTSP stream routes
+paths:
+  all_others:
